@@ -7,6 +7,7 @@ const mockChrome = global.chrome as any;
 describe('Messaging Utils', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockChrome.runtime.lastError = null;
   });
 
   describe('sendTypedMessage', () => {
@@ -53,6 +54,7 @@ describe('Messaging Utils', () => {
 
       const result = await sendTypedMessage(videoMessage);
       expect(result).toEqual(mockResponse);
+      expect(mockChrome.runtime.sendMessage).toHaveBeenCalledWith(videoMessage, expect.any(Function));
     });
   });
 

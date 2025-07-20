@@ -33,7 +33,7 @@ class BackgroundService {
 
   private async handleMessage(
     message: MessageRequest, 
-    sender: chrome.runtime.MessageSender
+    _sender: chrome.runtime.MessageSender
   ): Promise<MessageResponse> {
     try {
       switch (message.type) {

@@ -82,7 +82,7 @@ class YouTubeInfoGrabber {
   }
 
   private async processPlaylistDetails(playlistInfo: PlaylistInfo, playlistLink: HTMLAnchorElement): Promise<void> {
-    const originalUrl = window.location.href;
+    // const originalUrl = window.location.href; // Unused variable
     
     // Click the playlist link
     playlistLink.click();

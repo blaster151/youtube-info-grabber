@@ -16,12 +16,10 @@ module.exports = {
     '!src/popup.html'
   ],
   setupFilesAfterEnv: ['<rootDir>/tests/setup.ts'],
-  moduleNameMapping: {
-    '^@/(.*)$': '<rootDir>/src/$1'
-  },
-  globals: {
-    'ts-jest': {
+
+  transform: {
+    '^.+\\.ts$': ['ts-jest', {
       tsconfig: 'tsconfig.json'
-    }
+    }]
   }
 }; 

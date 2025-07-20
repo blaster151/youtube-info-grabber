@@ -37,6 +37,7 @@ export function addTypedMessageListener(
       return true; // Keep the message channel open for async response
     } else {
       sendResponse(result);
+      return false; // Synchronous response
     }
   });
 } 
