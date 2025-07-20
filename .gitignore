@@ -9,6 +9,11 @@ dist/
 build/
 *.tsbuildinfo
 
+# Ensure no TypeScript files in dist
+dist/**/*.ts
+dist/**/*.d.ts
+dist/**/*.d.ts.map
+
 # Environment variables
 .env
 .env.local

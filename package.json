@@ -4,9 +4,9 @@
   "description": "Chrome extension to capture YouTube video and playlist information via right-click",
   "main": "dist/background.js",
   "scripts": {
-    "build": "tsc && webpack --mode=production",
-    "build:dev": "tsc && webpack --mode=development",
-    "watch": "tsc --watch & webpack --mode=development --watch",
+    "build": "webpack --mode=production",
+    "build:dev": "webpack --mode=development",
+    "watch": "webpack --mode=development --watch",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",

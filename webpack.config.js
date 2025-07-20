@@ -19,7 +19,15 @@ module.exports = (env, argv) => {
       rules: [
         {
           test: /\.ts$/,
-          use: 'ts-loader',
+          use: {
+            loader: 'ts-loader',
+            options: {
+              compilerOptions: {
+                declaration: false,
+                declarationMap: false
+              }
+            }
+          },
           exclude: /node_modules/
         }
       ]
@@ -27,13 +35,20 @@ module.exports = (env, argv) => {
     resolve: {
       extensions: ['.ts', '.js']
     },
-    devtool: isProduction ? false : 'source-map',
+    devtool: false,
     plugins: [
       new CopyPlugin({
         patterns: [
           { from: 'src/manifest.json', to: 'manifest.json' },
           { from: 'src/popup.html', to: 'popup.html' },
-          { from: 'src/icons', to: 'icons', noErrorOnMissing: true }
+          { 
+            from: 'src/icons', 
+            to: 'icons', 
+            noErrorOnMissing: true,
+            globOptions: {
+              ignore: ['**/*.ts', '**/*.tsx']
+            }
+          }
         ]
       })
     ],
